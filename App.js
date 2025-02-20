@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { FlatList, TextInput } from 'react-native-web';
+import { FlatList, ScrollView, TextInput } from 'react-native-web';
 
 export default function App() {
 	const todos = [{
@@ -19,35 +19,61 @@ export default function App() {
 		title: "Todo 3",
 		description: "Description 3",
 		status: "done"
-	}];
+	},
+	{
+		id: 4,
+		title: "Todo 4",
+		description: "Description 4",
+		status: "done"
+	},
+	{
+		id: 5,
+		title: "Todo 5",
+		description: "Description 5",
+		status: "inProgress"
+	},
+	{
+		id: 6,
+		title: "Todo 6",
+		description: "Description 6",
+		status: "inProgress"
+	},
+	{
+		id: 7,
+		title: "Todo 7",
+		description: "Description 7",
+		status: "done"}
+	];
   return (
-    <View style={styles.container}>
-      <Text style={styles.appHeader}>Todo App</Text>
-	  <TextInput style={styles.input} placeholder="Enter the title"/>
-	  <TextInput style={styles.input} placeholder="Enter the description"/>
-	  <TouchableOpacity style={styles.submitBtn} activeOpacity={0.8}>
-		<Text style={{color: "#fff"}}>Submit</Text>
-	  </TouchableOpacity>
-	  <View style={styles.dividerLine}/>
-	  <View style={styles.filterContainer}>
-		<TouchableOpacity style={{...styles.filterBtn, ...styles.activeFilterBtn}} activeOpacity={0.8}>
-			<Text style={{...styles.filterText, ...styles.activeFilterText}}>All</Text>
-	  	</TouchableOpacity>
-		<TouchableOpacity style={styles.filterBtn} activeOpacity={0.8}>
-			<Text style={styles.filterText}>In progress</Text>
-	  	</TouchableOpacity>
-		<TouchableOpacity style={styles.filterBtn} activeOpacity={0.8}>
-			<Text style={styles.filterText}>Done</Text>
-	  	</TouchableOpacity>
-	  </View>
-	  <View style={styles.todosContainer}>
-			<FlatList data={todos} keyExtractor={(item) => item.id} renderItem={({item}) => 
-				<View style={styles.todoContainer}>
-					<Text>{item.title}</Text>
-				</View>
-			}/>
-	  </View> 
-    </View>
+	<ScrollView style={{paddingVertical: 20}}>
+		<View style={styles.container}>
+			<Text style={styles.appHeader}>Todo App</Text>
+			<TextInput style={styles.input} placeholder="Enter the title"/>
+			<TextInput style={styles.input} placeholder="Enter the description"/>
+			<TouchableOpacity style={styles.submitBtn} activeOpacity={0.8}>
+				<Text style={{color: "#fff"}}>Submit</Text>
+			</TouchableOpacity>
+			<View style={styles.dividerLine}/>
+			<View style={styles.filterContainer}>
+				<TouchableOpacity style={{...styles.filterBtn, ...styles.activeFilterBtn}} activeOpacity={0.8}>
+					<Text style={{...styles.filterText, ...styles.activeFilterText}}>All</Text>
+				</TouchableOpacity>
+				<TouchableOpacity style={styles.filterBtn} activeOpacity={0.8}>
+					<Text style={styles.filterText}>In progress</Text>
+				</TouchableOpacity>
+				<TouchableOpacity style={styles.filterBtn} activeOpacity={0.8}>
+					<Text style={styles.filterText}>Done</Text>
+				</TouchableOpacity>
+			</View>
+			<View style={styles.todosContainer}>
+					<FlatList data={todos} keyExtractor={(item) => item.id} renderItem={({item}) => 
+						<View style={styles.todoContainer}>
+							<Text>{item.title}</Text>
+						</View>
+					}/>
+			</View> 
+		</View>
+	</ScrollView>
   );
 }
 
