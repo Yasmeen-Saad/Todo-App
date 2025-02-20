@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { FlatList, ScrollView, TextInput } from 'react-native';
+import { FlatList, TextInput } from 'react-native';
 
 export default function App() {
 	const todos = [{
