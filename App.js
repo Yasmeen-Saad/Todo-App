@@ -66,11 +66,11 @@ export default function App() {
 				</TouchableOpacity>
 			</View>
 			<View style={styles.todosContainer}>
-					<FlatList data={todos} keyExtractor={(item) => item.id} renderItem={({item}) => 
-						<View style={styles.todoContainer}>
-							<Text>{item.title}</Text>
-						</View>
-					}/>
+				<FlatList data={todos} keyExtractor={(item) => item.id} renderItem={({item}) => 
+					<View style={styles.todoContainer}>
+						<Text>{item.title}</Text>
+					</View>
+				}/>
 			</View> 
 		</View>
 	</ScrollView>
