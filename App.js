@@ -40,9 +40,9 @@ export default function App() {
 			<Text style={styles.filterText}>Done</Text>
 	  	</TouchableOpacity>
 	  </View>
-	  <View>
+	  <View style={styles.todosContainer}>
 			<FlatList data={todos} keyExtractor={(item) => item.id} renderItem={({item}) => 
-				<View style={styles.todosContainer}>
+				<View style={styles.todoContainer}>
 					<Text>{item.title}</Text>
 				</View>
 			}/>
@@ -95,6 +95,13 @@ const styles = StyleSheet.create({
     width: "90%",
     justifyContent: "space-between",
   },
+  todosContainer: {
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "center",
+	alignContent: "center",
+    padding: 20
+  },
   filterText: {
     color: "black",
     fontSize: 15,
@@ -127,9 +134,9 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 15,
   },
-  todosContainer: {
+  todoContainer: {
     marginTop: 10,
-	width: 350,
+	width: "100%",
 	borderRadius: 15,
 	borderWidth: 2,
 	borderColor: "black",
