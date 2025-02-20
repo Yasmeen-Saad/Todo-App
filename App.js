@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { FlatList, ScrollView, TextInput } from 'react-native-web';
+import { FlatList, ScrollView, TextInput } from 'react-native';
 
 export default function App() {
 	const todos = [{
@@ -42,38 +42,55 @@ export default function App() {
 		id: 7,
 		title: "Todo 7",
 		description: "Description 7",
-		status: "done"}
+		status: "done"
+	},
+	{
+		id: 8,
+		title: "Todo 8",
+		description: "Description 8",
+		status: "done"
+	},
+	{
+		id: 9,
+		title: "Todo 9",
+		description: "Description 9",
+		status: "inProgress"
+	},
+	{
+		id: 10,
+		title: "Todo 10",
+		description: "Description 10",
+		status: "inProgress"
+	}
 	];
   return (
-	<ScrollView style={{paddingVertical: 20}}>
-		<View style={styles.container}>
-			<Text style={styles.appHeader}>Todo App</Text>
-			<TextInput style={styles.input} placeholder="Enter the title"/>
-			<TextInput style={styles.input} placeholder="Enter the description"/>
-			<TouchableOpacity style={styles.submitBtn} activeOpacity={0.8}>
-				<Text style={{color: "#fff"}}>Submit</Text>
+	<View style={styles.container}>
+		<Text style={styles.appHeader}>Todo App</Text>
+		<TextInput style={styles.input} placeholder="Enter the title"/>
+		<TextInput style={styles.input} placeholder="Enter the description"/>
+		<TouchableOpacity style={styles.submitBtn} activeOpacity={0.8}>
+			<Text style={{color: "#fff"}}>Submit</Text>
+		</TouchableOpacity>
+		<View style={styles.dividerLine}/>
+		<View style={styles.filterContainer}>
+			<TouchableOpacity style={{...styles.filterBtn, ...styles.activeFilterBtn}} activeOpacity={0.8}>
+				<Text style={{...styles.filterText, ...styles.activeFilterText}}>All</Text>
 			</TouchableOpacity>
-			<View style={styles.dividerLine}/>
-			<View style={styles.filterContainer}>
-				<TouchableOpacity style={{...styles.filterBtn, ...styles.activeFilterBtn}} activeOpacity={0.8}>
-					<Text style={{...styles.filterText, ...styles.activeFilterText}}>All</Text>
-				</TouchableOpacity>
-				<TouchableOpacity style={styles.filterBtn} activeOpacity={0.8}>
-					<Text style={styles.filterText}>In progress</Text>
-				</TouchableOpacity>
-				<TouchableOpacity style={styles.filterBtn} activeOpacity={0.8}>
-					<Text style={styles.filterText}>Done</Text>
-				</TouchableOpacity>
-			</View>
-			<View style={styles.todosContainer}>
+			<TouchableOpacity style={styles.filterBtn} activeOpacity={0.8}>
+				<Text style={styles.filterText}>In progress</Text>
+			</TouchableOpacity>
+			<TouchableOpacity style={styles.filterBtn} activeOpacity={0.8}>
+				<Text style={styles.filterText}>Done</Text>
+			</TouchableOpacity>
+		</View>
+		<View style={styles.todosContainer}>
 				<FlatList data={todos} keyExtractor={(item) => item.id} renderItem={({item}) => 
 					<View style={styles.todoContainer}>
 						<Text>{item.title}</Text>
 					</View>
 				}/>
-			</View> 
-		</View>
-	</ScrollView>
+		</View> 
+	</View>
   );
 }
 
@@ -87,7 +104,8 @@ const styles = StyleSheet.create({
   appHeader: {
 	fontSize: 25,
 	textTransform: 'uppercase',
-	fontWeight: 'bold'
+	fontWeight: 'bold',
+	paddingTop: 60
   },
   input:{
 	borderWidth: 1,
@@ -122,11 +140,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   todosContainer: {
+	flex: 1,
     flexDirection: "row",
     width: "100%",
     justifyContent: "center",
 	alignContent: "center",
-    padding: 20
+    padding: 20,
   },
   filterText: {
     color: "black",
@@ -136,7 +155,7 @@ const styles = StyleSheet.create({
     height: 1,
     width: "90%",
     backgroundColor: "#aeaeae",
-    marginVertical: 15,
+    marginVertical: 20
   },
   submitBtn: {
     width: "50%",
