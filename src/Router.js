@@ -18,7 +18,7 @@ export default function Router() {
                 tabBarStyle: { borderTopWidth: 0, backgroundColor: '#fff', position: 'absolute', height : 50},
                 tabBarIcon: ({ color='#000', size }) => {
                     let iconName;
-                    if (route.name === 'Home') {
+                    if (route.name === 'Main') {
                       iconName ='home';
                     } else if (route.name === 'Account') {
                       iconName = 'person';
@@ -30,7 +30,7 @@ export default function Router() {
                   tabBarActiveTintColor: 'black',
                   tabBarIconStyle: {margin : 5},
             })}>
-            <Tabs.Screen name='Home' component={StackNavigator} options={{headerShown: false}}/>
+            <Tabs.Screen name='Main' component={StackNavigator} options={{headerShown: false}}/>
             <Tabs.Screen name='Account' component={Account}/>
             <Tabs.Screen name='Settings' component={Settings}/>
         </Tabs.Navigator>
