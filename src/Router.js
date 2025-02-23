@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import StackNavigator from './StackNavigator';
-import Account from './Account';
+import Tasks from './Tasks';
 import Settings from './Settings';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -20,8 +20,8 @@ export default function Router() {
                     let iconName;
                     if (route.name === 'Main') {
                       iconName ='home';
-                    } else if (route.name === 'Account') {
-                      iconName = 'person';
+                    } else if (route.name === 'Tasks') {
+                      iconName = 'list';
                     } else if (route.name === 'Settings') {
                       iconName = 'settings';
                     }
@@ -31,7 +31,7 @@ export default function Router() {
                   tabBarIconStyle: {margin : 5},
             })}>
             <Tabs.Screen name='Main' component={StackNavigator} options={{headerShown: false}}/>
-            <Tabs.Screen name='Account' component={Account}/>
+            <Tabs.Screen name='Tasks' component={Tasks}/>
             <Tabs.Screen name='Settings' component={Settings}/>
         </Tabs.Navigator>
     </NavigationContainer>

@@ -4,12 +4,12 @@ import { useNavigation } from '@react-navigation/native'
 
 const TodoDetails = (item) => {
     const {goBack} = useNavigation();
-    const {title, description, status} = item.route.params;
+    const {title, description, isDone} = item.route.params;
 
   return (
     <View>
         <Text style={styles.todoTitle}>{title}</Text>
-        <Text style={styles.todoStatus}>Status : {status}</Text>
+        <Text style={styles.todoStatus}>Status : {isDone ? 'Done' : 'In Progress'}</Text>
         <Text style={styles.todoDescription}>{description}</Text>
     </View>
   )
