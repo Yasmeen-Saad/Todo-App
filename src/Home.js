@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { StyleSheet, Text, TouchableOpacity, View, FlatList, TextInput, Platform, Alert } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, FlatList, TextInput, Platform, Alert, Keyboard } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -111,6 +111,7 @@ const Home = () => {
 		setTodos(allTodos);
 		setTitle('');
 		setDescription('');
+		Keyboard.dismiss();
 	};
 
 	const toggleStatus = (id) => {
@@ -154,7 +155,7 @@ const Home = () => {
 			setFilteredTodos(todos);
 		} 
 	};
-	
+
 	return (
 	<View style={styles.container}>
 		<Text style={styles.appHeader}>Todo App</Text>
